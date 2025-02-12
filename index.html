@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title>Q3Quiz2</title>
+
+<style>
+	body{
+		background-image: url(https://i.pinimg.com/736x/6d/59/0a/6d590a26b7b560c416606c319a9156db.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: fixed;
+	}
+
+	h1{
+		color: white;
+		font-family: monospace, monaco;
+		background-color: #5C5076;
+	}
+
+	summary{
+		font-weight: bold;
+		font-family: monospace, lucida console;
+	}
+
+	label{
+		font-size: 20px;
+		font-weight: bold;
+		font-family: monospace, lucida console;
+	}
+
+	#button1{
+		background-color: #5C5076;
+	}
+	#button2{
+		background-color: #5C5076;
+	}
+	#button3{
+		background-color: white;
+	}
+	#button4{
+		background-color: #5C5076;
+	}
+</style>
+
+</head>
+<body>
+<center>
+<div class="col-md-8">
+<!--html coding-->
+<br>
+<h1>Welcome to my Ticketing Center!</h1>
+
+<br>
+
+<details ontoggle="message1()">
+<!-- personal info -->
+	<summary>Instructions</summary>
+	<i id="revealmee1"></i>
+
+	<br>
+
+<form>
+	<label>Enter Full Name:</label>
+		<input type="text" id="name" class="form-control" placeholder="Enter your Full Name...">
+
+	<br>
+
+	<label>Enter Email Address:</label>
+		<input type="text" id="email" class="form-control" placeholder="Enter your Email Address...">
+	<br>
+	<button type="Submit" id="button1" onclick="thankyou()" class="btn btn-default">Submit</button>
+</form>
+</details>
+
+<br>
+
+<details ontoggle="price()">
+<!-- ticket pricing -->
+	<summary>Ticket Price:</summary>
+	<i id="showmee2"></i>
+
+	<br>
+
+<form>
+	<label>Choose your Seat:</label>
+	<select class="form-control" id="seat">
+		<option value="none">Choose your seat...</option>
+		<option value="600">Vip (front row, ₱600)</option>
+		<option value="400">Middle row (₱400)</option>
+		<option value="200">Back row (₱200)</option>
+	</select>
+
+	<br>
+
+	<label>What type of Individual are you?</label>
+	<select class="form-control" id="individual">
+		<option value="none">Select what type of Individual you are...</option>
+		<option value="0.2">Student</option>
+		<option value="0.1">Child</option>
+		<option value="1">Adult</option>
+		<option value="0.2">PWD</option>
+		<option value="0.2">Senior Citizen</option>
+	</select>
+	<br>
+	<button type="Submit" id="button2" class="btn btn-default" onclick="showmeticketprice2()">Ticket Price</button>
+</form>
+</details>
+
+<br>
+
+<details ontoggle="print_ticket()">
+<!-- printing of ticket -->
+	<summary>Print Ticket:</summary>
+	<i id="showmetickettt3"></i>
+
+	<form>
+	<img src="https://png.pngtree.com/png-vector/20230227/ourmid/pngtree-golden-ticket-png-image_6621563.png">
+	<button type="Submit" id="button3" class="btn btn-default" onclick="thank_you()">Print Ticket</button>
+</form>
+<a href="index.html">
+	<button type="button" class="btn btn-default" id="button4">Buy more Tickets</button>
+</a>
+</details>
+
+<br><br>
+<br><br>
+
+</div>
+</center>
+
+<script type="text/javascript">
+// javascript coding
+	function message1(){
+		document.getElementById("revealmee1").innerHTML="Input your information below:";
+	}
+
+	function price(){
+		document.getElementById("showmee2").innerHTML="Check for your ticket price.";
+	}
+
+	function print_ticket(){
+		document.getElementById("showmetickettt3").innerHTML="Print your ticket (will be sent to your email).";
+	}
+
+	function thankyou(){
+		var name = document.getElementById("name").value;
+		window.alert("Thank you for filling out this form " + name);
+	}
+
+	function thank_you(){
+		var thanks = document.getElementById("name").value;
+		window.alert("Thank you for purchasing your ticket!");
+	}
+
+	function showmeticketprice2(){
+	// formula
+		var individual = document.getElementById("individual").value;
+		var seat = document.getElementById("seat").value;
+		// how much off the seat price
+		var product = Number(seat) * Number(individual);
+		// final price
+		var subtraction = (seat) - product
+		window.alert("Your ticket price is ₱" + subtraction.toFixed(2));
+	}
+
+</script>
+
+
+</body>
+</html>
